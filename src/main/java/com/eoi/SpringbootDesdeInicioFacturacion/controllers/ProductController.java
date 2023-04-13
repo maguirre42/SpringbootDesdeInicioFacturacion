@@ -15,7 +15,7 @@ public class ProductController {
     private ProductService  productService;
     // Para acceder a los métodos avanzados del servicio
 
-    @GetMapping("/")
+    @GetMapping(value = {"/", ""})
     public String showProducts(Model model) {
         // Creamos atributos "products" que contine todos los productos mediante el método findAll del servicio
         model.addAttribute("products", productService.findAll());

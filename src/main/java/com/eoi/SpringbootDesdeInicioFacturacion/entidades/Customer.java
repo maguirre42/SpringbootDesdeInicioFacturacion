@@ -1,12 +1,28 @@
 package com.eoi.SpringbootDesdeInicioFacturacion.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Table(name = "customers")
 public class Customer {
+    @Column(name = "id")
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "name")
     String name;
+
+    @OneToMany(mappedBy = "invoiceToCustomer", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Invoice> invoiceList = new ArrayList<>();
 }

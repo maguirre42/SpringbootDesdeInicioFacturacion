@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Optional;
 
 
-@RestController
-@RequestMapping("/api/products")
+@RestController // Genera un API REST
+@RequestMapping("/api/products") // Url que devuelve lista de productos
 public class ProductRestController {
     @Autowired
     private ProductService productService;
-    @GetMapping
+    @GetMapping(value = {"/", ""})
     public List<Product> findAll() {
         return productService.findAll();
     }

@@ -1,5 +1,6 @@
 package com.eoi.SpringbootDesdeInicioFacturacion.entidades;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,12 +22,15 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(name = "date")
+    /*    @Column(name = "codigo de factura")*/
+    private String codigoFactura;
+    /*    @Column(name = "Fecha")*/
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_customer")
-    private Customer invoiceToCustomer;
+    /*    @Column(name = "customer (aquí se pone la columna con la cual se une")*/
+    private Customer customer;
 }

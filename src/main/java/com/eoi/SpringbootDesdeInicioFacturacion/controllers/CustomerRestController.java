@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 
-@RestController
-@RequestMapping("/api/customers")
+@RestController // Genera una API REST (Buscar que es)
+@RequestMapping("/api/customer") // Url que devuelve lista de customers
 public class CustomerRestController {
     @Autowired
     private CustomerService  customerService;

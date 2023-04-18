@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -16,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "customers")
+@Table(name = "customer")
 public class Customer {
     @Column(name = "id")
     @Id
@@ -37,4 +36,10 @@ public class Customer {
     If FetchType.LAZY is used, the associated entity (Author) will not be loaded until it is accessed, similar to going to the separate room to get author information when needed.
     In contrast, if FetchType.EAGER is used, the associated entity will be loaded along with the entity it is related to (Book), similar to getting all information (book and author) in the same room. */
     private List<Invoice> invoices;
+
+    @JsonManagedReference
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    private List<Contract> contracts;
 }

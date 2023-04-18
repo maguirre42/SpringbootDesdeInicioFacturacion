@@ -36,7 +36,7 @@ public class InvoiceController {
     @GetMapping("/edit/{id}")
     public String showEditInvoiceForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("invoice", invoiceService.findById(id));
-        return "invoice-form";
+        return "customer-invoice-form";
     }
     @GetMapping("/delete/{id}")
     public String deleteInvoice(@PathVariable("id") Long id) {

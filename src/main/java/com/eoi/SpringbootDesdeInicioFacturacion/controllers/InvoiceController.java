@@ -21,12 +21,12 @@ public class InvoiceController {
         model.addAttribute("invoices", invoiceService.findAll());
         // Devuelve el nombre de la vista (html) que queremos mostrar
         // El combo de SpringBootWeb y Thymeleaf nos permite usar el nombre de la vista sin poner la extensión.
-        return "invoice-list";
+        return "invoice/invoice-list";
     }
     @GetMapping("/new")
     public String showNewInvoiceForm(Model model) {
         model.addAttribute("invoice", new Invoice());
-        return "invoice-form";
+        return "invoice/invoice-form";
     }
     @PostMapping("/save")
     public String saveInvoice(@ModelAttribute("invoice") Invoice invoice) {
@@ -36,7 +36,7 @@ public class InvoiceController {
     @GetMapping("/edit/{id}")
     public String showEditInvoiceForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("invoice", invoiceService.findById(id));
-        return "customer-invoice-form";
+        return "invoice/customer-invoice-form";
     }
     @GetMapping("/delete/{id}")
     public String deleteInvoice(@PathVariable("id") Long id) {

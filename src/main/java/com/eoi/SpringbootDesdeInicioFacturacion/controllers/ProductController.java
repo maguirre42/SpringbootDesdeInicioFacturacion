@@ -28,7 +28,7 @@ public class ProductController {
 
         model.addAttribute("products", productService.findAll());
 
-        return "product-list";
+        return "product/product-list";
 
     }
 
@@ -68,7 +68,7 @@ public class ProductController {
 
         model.addAttribute("product", new Product());
 
-        return "product-form";
+        return "product/product-form";
 
     }
 
@@ -96,7 +96,7 @@ public class ProductController {
 
             model.addAttribute("product", product.get());
 
-            return "product-form";
+            return "product/product-form";
 
         }
 

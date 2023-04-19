@@ -30,13 +30,13 @@ public class CustomerController {
     @GetMapping(value = {"/",""})
     public String showCustomers(Model model) {
         model.addAttribute("customers", customerService.findAll());
-        return "customer-list";
+        return "customer/customer-list";
     }
 
     @GetMapping("/new")
     public String showNewCustomerForm(Model model) {
         model.addAttribute("customer", new Customer());
-        return "customer-form";
+        return "customer/customer-form";
     }
 
     @PostMapping("/save")
@@ -57,7 +57,7 @@ public class CustomerController {
             return "error-page";
         }
 
-        return "customer-form";
+        return "customer/customer-form";
 
     }
 
@@ -75,7 +75,7 @@ public class CustomerController {
             Invoice invoice = new Invoice();
             invoice.setCustomer(customer.get());
             model.addAttribute("invoice", invoice);
-            return "customer-invoice-form";
+            return "customer/customer-invoice-form";
         }else {
             return "error";
         }
@@ -104,7 +104,7 @@ public class CustomerController {
             Contract contract = new Contract();
             contract.setCustomer(customer.get());
             model.addAttribute("contract", contract);
-            return "customer-contract-form";
+            return "customer/customer-contract-form";
         }else {
             return "error";
         }

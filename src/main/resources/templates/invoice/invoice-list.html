@@ -20,7 +20,7 @@
         <tbody>
         <tr th:each="invoice : ${invoices}">
             <td th:text="${invoice.id}">1</td>
-            <td th:text="${invoice.date}">Invoice date</td>
+            <td th:text="${invoice.billingDate}">Invoice date</td>
             <td th:text="${invoice.codigoFactura}">Invoice date</td>
             <td>
                 <a class="btn btn-outline-primary" th:href="@{/invoices/edit/{id}(id=${invoice.id})}">Edit</a>
